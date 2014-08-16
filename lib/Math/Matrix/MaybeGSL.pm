@@ -207,7 +207,7 @@ Math::Matrix::MaybeGSL - Uniform use of Math::MatrixReal and Math::GSL::Matrix.
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
