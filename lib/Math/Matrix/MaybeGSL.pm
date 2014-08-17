@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 package Math::Matrix::MaybeGSL;
-
+$Math::Matrix::MaybeGSL::VERSION = '0.003';
 use parent 'Exporter';
 our @EXPORT = qw{Matrix};
 
@@ -207,7 +207,7 @@ Math::Matrix::MaybeGSL - Uniform use of Math::MatrixReal and Math::GSL::Matrix.
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
