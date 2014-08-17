@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 package Math::Matrix::MaybeGSL;
-$Math::Matrix::MaybeGSL::VERSION = '0.003';
+$Math::Matrix::MaybeGSL::VERSION = '0.004';
 use parent 'Exporter';
 our @EXPORT = qw{Matrix};
 
@@ -182,16 +182,19 @@ sub _assign_multiply
  
     return( &_multiply($object,$argument,undef) );
 }
+
 sub _multiply {
     my ($object, $argument, $flag) = @_;
  
+    $argument = $argument->{matrix} if ref $argument eq __PACKAGE__;
+    $object   = $object->{matrix}   if ref $object   eq __PACKAGE__;
+
     if ((defined $flag) && $flag) {
-    	return _new($argument->{matrix} * $object->{matrix});
+    	return _new($argument * $object);
     } else {
-    	return _new($object->{matrix} * $argument->{matrix});
+    	return _new($object * $argument);
     }
 }
-
 
 1;
 
@@ -207,7 +210,7 @@ Math::Matrix::MaybeGSL - Uniform use of Math::MatrixReal and Math::GSL::Matrix.
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
