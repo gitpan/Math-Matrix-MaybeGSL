@@ -2,7 +2,11 @@
  Math::Matrix::MaybeGSL Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-0.004  
+0.005  2014-08-22
+
+    * Added read/write methods.
+
+0.004  2014-08-17
 
     * Fixed multiplication overload.
     * Added further tests on multiplication.

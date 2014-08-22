@@ -21,6 +21,7 @@ my %WriteMakefileArgs = (
   "NAME" => "Math::Matrix::MaybeGSL",
   "PREREQ_PM" => {
     "Exporter" => 0,
+    "Math::GSL" => 0,
     "Math::MatrixReal" => "2.11",
     "overload" => 0,
     "parent" => 0,
@@ -31,7 +32,7 @@ my %WriteMakefileArgs = (
     "Test::More" => 0,
     "Test::Without::Module" => "0.17"
   },
-  "VERSION" => "0.004",
+  "VERSION" => "0.005",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -40,6 +41,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Exporter" => 0,
+  "Math::GSL" => 0,
   "Math::MatrixReal" => "2.11",
   "Test::More" => 0,
   "Test::Without::Module" => "0.17",

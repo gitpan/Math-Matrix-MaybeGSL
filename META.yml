@@ -18,9 +18,10 @@ recommends:
   Math::GSL: '0.32'
 requires:
   Exporter: '0'
+  Math::GSL: '0'
   Math::MatrixReal: '2.11'
   overload: '0'
   parent: '0'
   strict: '0'
   warnings: '0'
-version: '0.004'
+version: '0.005'
