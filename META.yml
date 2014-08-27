@@ -24,4 +24,6 @@ requires:
   parent: '0'
   strict: '0'
   warnings: '0'
-version: '0.005'
+resources:
+  repository: https://github.com/ambs/Math-Matrix-MaybeGSL.git
+version: '0.006'

@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 package Math::Matrix::MaybeGSL;
-$Math::Matrix::MaybeGSL::VERSION = '0.005';
+$Math::Matrix::MaybeGSL::VERSION = '0.006';
 use parent 'Exporter';
 our @EXPORT = qw{Matrix};
 
@@ -37,6 +37,11 @@ sub Matrix { __PACKAGE__ }
 sub _call {
     my ($method, $obj, @args) = @_;
     $obj->{matrix}->$method(@args);
+}
+
+sub isGSL {
+    our $matrix_module;
+    return $matrix_module eq "Math::GSL::Matrix";
 }
 
 BEGIN {
@@ -306,7 +311,7 @@ Math::Matrix::MaybeGSL - Uniform use of Math::MatrixReal and Math::GSL::Matrix.
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
@@ -337,6 +342,12 @@ own API, stealing method names from both these modules.
 
 This is a simple function that returns this package name: C<Math::Matrix::MaybeGSL>.
 It allows a simple interface as shown below for the constructors.
+
+=head2 C<isGSL>
+
+Returns a true value is running over L<Math::GSL> backend.
+
+    if (Matrix->isGSL) { ... }
 
 =head2 C<new>
 
