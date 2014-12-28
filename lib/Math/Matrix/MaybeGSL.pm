@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 package Math::Matrix::MaybeGSL;
-$Math::Matrix::MaybeGSL::VERSION = '0.006';
+$Math::Matrix::MaybeGSL::VERSION = '0.007';
 use parent 'Exporter';
 our @EXPORT = qw{Matrix};
 
@@ -53,8 +53,10 @@ BEGIN {
                        my (undef, $rows, $cols) = @_;
                        return _new( $matrix_module->new($rows, $cols) );
                    },
-                   dim  => sub { _call(dim => @_) },
-                   each => sub { _new(_call(each => @_)) },
+                   dim     => sub { _call(dim => @_) },
+                   each    => sub { _new(_call(each => @_)) },
+                   as_list => sub { _call(as_list => @_) },
+                   det     => sub { _call(det => @_)} ,
                   },
          'Math::GSL::Matrix' => {
             assign        => sub { _call(set_elem => ($_[0], $_[1]-1, $_[2]-1, $_[3])); },
@@ -311,7 +313,7 @@ Math::Matrix::MaybeGSL - Uniform use of Math::MatrixReal and Math::GSL::Matrix.
 
 =head1 VERSION
 
-version 0.006
+version 0.007
 
 =head1 SYNOPSIS
 
@@ -443,6 +445,15 @@ is returned.
 
       $min = $matrix->min();
       ($min, $row, $col) = $matrix->min();
+
+=head2 C<det>
+
+Returns the determinant of the matrix, without going through the rigamarole of computing
+a LR decomposition.
+
+=head2 C<as_list>
+
+Get the contents of a matrix instance as a Perl list.
 
 =head2 C<write>
 
